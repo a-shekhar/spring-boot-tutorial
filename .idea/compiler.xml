@@ -10,7 +10,10 @@
         <module name="mycoolapp (5)" />
         <module name="mycoolapp (2)" />
         <module name="mycoolapp (3)" />
+        <module name="springcoredemo (5)" />
+        <module name="springcoredemo (4)" />
         <module name="mycoolapp (1)" />
+        <module name="springcoredemo (3)" />
         <module name="springcoredemo (2)" />
         <module name="springcoredemo (1)" />
         <module name="springcoredemo" />
@@ -29,6 +32,9 @@
       <module name="springcoredemo" options="-parameters" />
       <module name="springcoredemo (1)" options="-parameters" />
       <module name="springcoredemo (2)" options="-parameters" />
+      <module name="springcoredemo (3)" options="-parameters" />
+      <module name="springcoredemo (4)" options="-parameters" />
+      <module name="springcoredemo (5)" options="-parameters" />
     </option>
   </component>
 </project>
