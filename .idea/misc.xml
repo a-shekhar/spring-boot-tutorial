@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/02-spring-boot-spring-core/07-bean-scopes/pom.xml" />
         <option value="$PROJECT_DIR$/02-spring-boot-spring-core/08-bean-lifecycle-methods/pom.xml" />
         <option value="$PROJECT_DIR$/02-spring-boot-spring-core/09-java-config-bean/pom.xml" />
+        <option value="$PROJECT_DIR$/03-spring-boot-hibernate-jpa-crud/01-cruddemo-student/pom.xml" />
       </list>
     </option>
   </component>
