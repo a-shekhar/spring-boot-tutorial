@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -22,8 +23,47 @@ public class CurddemoApplication {
 			// createStudent(studentDAO);
 			 createMultipleStudents(studentDAO);
 			// readStudent(studentDAO);
-			queryForStudents(studentDAO);
+			// queryForStudents(studentDAO);
+		    //	queryForStudentsByLastName(studentDAO);
+			// updateStudent(studentDAO);
+			// deleteStudent(studentDAO);
+			// deleteAllStudents(studentDAO);
 		};
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting all students");
+		int numRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Deleted rows " + numRowsDeleted);
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 3;
+		System.out.println("Deleting the student Id " + studentId);
+		studentDAO.delete(studentId);
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+        // retrieve student based on primary key
+		int theId = 1;
+        System.out.println("Retrieving student with id: " + theId);
+        Student originalStudent = studentDAO.findById(theId);
+
+		System.out.println("Updating student...");
+        // update the student's details
+        originalStudent.setFirstName("John");
+
+		studentDAO.update(originalStudent);
+	}
+
+	private void queryForStudentsByLastName(StudentDAO studentDAO) {
+		System.out.println("Finding student by last name...");
+		List<Student> students = studentDAO.findByLastName("Raj");
+
+		for (Student student : students) {
+			System.out.println(student);
+		}
+
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
@@ -57,7 +97,7 @@ public class CurddemoApplication {
 	private void createMultipleStudents(StudentDAO studentDAO) {
 		System.out.println("Creating 3 student object");
 		Student tempStudent1 = new Student("Joe", "Doe", "john@gmail.com");
-		Student tempStudent2 = new Student("Aditya", "Doe", "adi@gmail.com");
+		Student tempStudent2 = new Student("Aditya", "Raj", "adi@gmail.com");
 		Student tempStudent3 = new Student("Raj", "Doe", "raj@gmail.com");
 		System.out.println("Saving the students");
 		studentDAO.save(tempStudent1);
