@@ -25,6 +25,7 @@
         <option value="$PROJECT_DIR$/04-spring-boot-rest-crud/02-spring-boot-rest-crud-employee/pom.xml" />
         <option value="$PROJECT_DIR$/04-spring-boot-rest-crud/03-spring-boot-rest-crud-employee-with-spring-data-jpa/pom.xml" />
         <option value="$PROJECT_DIR$/04-spring-boot-rest-crud/04-spring-boot-rest-crud-employee-with-spring-data-rest/pom.xml" />
+        <option value="$PROJECT_DIR$/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/pom.xml" />
       </list>
     </option>
   </component>
