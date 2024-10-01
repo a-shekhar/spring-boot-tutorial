@@ -31,6 +31,7 @@
         <option value="$PROJECT_DIR$/05-spring-boot-rest-security/01-spring-boot-rest-security-employee-starter-code/pom.xml" />
         <option value="$PROJECT_DIR$/05-spring-boot-rest-security/03-spring-boot-rest-security-employee-custom-table/pom.xml" />
         <option value="$PROJECT_DIR$/06-spring-boot-spring-mvc/01-thymeleafdemo-helloworld/pom.xml" />
+        <option value="$PROJECT_DIR$/06-spring-boot-spring-mvc/02-getmapping-and-postmapping/pom.xml" />
       </list>
     </option>
   </component>
