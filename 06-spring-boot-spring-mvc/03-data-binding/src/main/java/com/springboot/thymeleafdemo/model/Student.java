@@ -1,10 +1,13 @@
 package com.springboot.thymeleafdemo.model;
 
+import java.util.List;
+
 public class Student {
     private String firstName;
     private String lastName;
     private String country;
     private String favoriteLanguage;
+    private List<String> favoriteSystems;
 
     public Student() {
         // default constructor
@@ -49,13 +52,27 @@ public class Student {
         this.favoriteLanguage = favoriteLanguage;
     }
 
+    
+    public List<String> getFavoriteSystems() {
+        return favoriteSystems;
+    }
+
+    public void setFavoriteSystems(List<String> favoriteSystems) {
+        this.favoriteSystems = favoriteSystems;
+    }
+
     @Override
     public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", country='" + country + '\'' +
-                ", favoriteLanguage='" + favoriteLanguage + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Student{");
+        sb.append("firstName=").append(firstName);
+        sb.append(", lastName=").append(lastName);
+        sb.append(", country=").append(country);
+        sb.append(", favoriteLanguage=").append(favoriteLanguage);
+        sb.append(", favoriteSystems=").append(favoriteSystems);
+        sb.append('}');
+        return sb.toString();
     }
+
+
 }
