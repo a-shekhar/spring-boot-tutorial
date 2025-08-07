@@ -16,10 +16,11 @@ public class Customer {
     @Size(min=1, message= "is required")
     private String lastName;
 
+    @NotNull(message= "is required")
     @Min(value=0, message="Must be greater than or equal to Zero")
     @Max(value=10, message="Must be less than or equal to Ten")
-    private int freePasses;
+    private Integer freePasses;
 
-    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message= "Only 5 chars/digits")
+    @Pattern(regexp = "^[a-zA-Z0-9]{6}", message= "Only 6 chars/digits")
     private String postalCode;
 }
