@@ -1,8 +1,8 @@
-package com.luv2code.springboot.cruddemo.service;
-
-import com.luv2code.springboot.cruddemo.entity.Employee;
+package com.anjori.cruddemo.service;
 
 import java.util.List;
+
+import com.anjori.cruddemo.entity.Employee;
 
 public interface EmployeeService {
 

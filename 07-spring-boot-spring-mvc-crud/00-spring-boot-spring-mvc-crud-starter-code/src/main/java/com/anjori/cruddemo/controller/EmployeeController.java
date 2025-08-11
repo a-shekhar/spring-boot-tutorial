@@ -1,0 +1,38 @@
+package com.anjori.cruddemo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.anjori.cruddemo.entity.Employee;
+import com.anjori.cruddemo.service.EmployeeService;
+
+@Controller
+@RequestMapping("/employees")
+public class EmployeeController {
+    
+    private EmployeeService employeeService;
+
+    @Autowired
+    public EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping("/list")
+    public String listEmployees(Model model){
+        // get the employees from DB
+        List<Employee> employees = employeeService.findAll();
+
+        System.out.println(employees);
+
+        // add it to spring model
+        model.addAttribute("employees", employees);
+
+        return "list-employees";
+    }
+
+}
