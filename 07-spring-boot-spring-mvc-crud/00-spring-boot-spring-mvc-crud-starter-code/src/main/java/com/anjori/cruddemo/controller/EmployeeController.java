@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.anjori.cruddemo.entity.Employee;
 import com.anjori.cruddemo.service.EmployeeService;
@@ -51,6 +52,24 @@ public class EmployeeController {
         employeeService.save(employee);
 
         // use a redirect to prevent duplicate submission 
+        return "redirect:/employees/list";
+    }
+
+
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("employeeId") int userId, Model model){
+        // get the employee from the the Service
+        Employee employee = employeeService.findById(userId);
+        // set employee in the model to pre-populate the form 
+        model.addAttribute("employee", employee);
+        // send over to our form
+        return "employees/employee-form";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("employeeId") int id){
+        // delete the employee
+        employeeService.deleteById(id);
         return "redirect:/employees/list";
     }
 }
