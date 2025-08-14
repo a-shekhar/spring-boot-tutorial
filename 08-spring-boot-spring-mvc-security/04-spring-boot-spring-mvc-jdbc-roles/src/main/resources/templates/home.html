@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf/org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <title>Anjori Arts Home Page</title>
+    </head>
+        <h1>Anjori Arts Home Page</h1>
+        <hr>
+        <p>
+            Welcome to Anjori Arts!!
+        </p>
+
+        <!-- Display username and role -->
+        <p>
+            User: <span sec:authentication="principal.username"></span>
+            <br><br>
+            Role(s): <span sec:authentication="principal.authorities"></span>
+        </p>
+
+            <div sec:authorize="hasRole('MANAGER')">
+            <!-- Add a link point to /leaders, This is for managers -->
+             <p>
+                <a th:href="@{/leaders}">Leadership Meeting</a>
+                (Only for Manager Peeps)
+             </p>
+            </div>
+
+            <!-- Add a link point to /systems, This is for admin -->
+            <div sec:authorize="hasRole('ADMIN')">
+            <p>
+                <a th:href="@{/systems}">IT System Meeting</a>
+                (Only for Admin Peeps)
+             </p> 
+            </div>
+        <hr>
+        
+        <!--Add a Logout button-->
+        <form action="#" th:action="@{/logout}" method="POST">
+            <input type="submit" value="Logout" />
+        </form>
+
+    </body>
+</html>
