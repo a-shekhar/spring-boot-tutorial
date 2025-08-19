@@ -1,11 +1,15 @@
 package com.anjori.advanced_mappings.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.anjori.advanced_mappings.entity.Course;
 import com.anjori.advanced_mappings.entity.Instructor;
 import com.anjori.advanced_mappings.entity.InstructorDetail;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -53,4 +57,14 @@ public class AppDAOImpl implements AppDAO {
 
         entityManager.remove(instructorDetail);
     }
+
+    @Override
+    public List<Course> findCoursesByInstructorId(int instructorId){
+        TypedQuery<Course> query = entityManager.createQuery("            FROM Course where instructor.id = :instructorId", Course.class);  
+    
+        query.setParameter("instructorId", instructorId);
+        List<Course> courses = query.getResultList();
+        return courses;
+    }
+
 }

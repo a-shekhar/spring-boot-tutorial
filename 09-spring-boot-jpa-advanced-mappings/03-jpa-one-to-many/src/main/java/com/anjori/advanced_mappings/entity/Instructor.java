@@ -46,13 +46,14 @@ public class Instructor {
     @ToString.Exclude
     private InstructorDetail instructorDetail;
 
-    @OneToMany(mappedBy="instructor", fetch= FetchType.EAGER,
+    @OneToMany(mappedBy="instructor", fetch= FetchType.LAZY,
                cascade = {
                    CascadeType.PERSIST,
                    CascadeType.MERGE,
                    CascadeType.DETACH,
                    CascadeType.REFRESH
                })
+    @ToString.Exclude
     private List<Course> courses;
 
     // add convenience methods for bi-directional relationship

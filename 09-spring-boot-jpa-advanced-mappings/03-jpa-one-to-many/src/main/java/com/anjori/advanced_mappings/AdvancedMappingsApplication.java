@@ -1,5 +1,7 @@
 package com.anjori.advanced_mappings;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +28,21 @@ public class AdvancedMappingsApplication {
 			//findInstructorDetailById(appDAO);
 			//deleteInstructorDetailsById(appDAO);
 			//createInstructorWithCourses(appDAO);
-			findInstructorWithCourses(appDAO);
+			//findInstructorWithCourses(appDAO);
+			findCoursesForInstructor(appDAO);
 		};
+	}
+
+	private void findCoursesForInstructor(AppDAO appDAO) {
+		int instructorId = 1; // Assuming an instructor with ID 1 exists
+		Instructor instructor = appDAO.findById(instructorId);
+	
+		System.out.println("Found instructor: " + instructor);
+
+		// find course for instructor
+		System.out.println("Finding courses for instructor with id: " + instructorId);
+		List<Course> courses = appDAO.findCoursesByInstructorId(instructorId);
+		System.out.println("Associated courses: " + courses);
 	}
 
 	private void findInstructorWithCourses(AppDAO appDAO) {
