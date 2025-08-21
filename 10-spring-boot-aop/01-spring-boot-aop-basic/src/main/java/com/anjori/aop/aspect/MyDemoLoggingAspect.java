@@ -10,7 +10,7 @@ public class MyDemoLoggingAspect {
     // this is where we add all of our related advices for logging
 
     // For example, we can add a method to log before the execution of a method in AccountDAO
-    @Before("execution(public void addAccount())")
+    @Before("execution(public void com.anjori.aop.dao.AccountDAO.addAccount())")
     public void beforeAddAccountAdvice() {
         System.out.println("======> Executing @Before advice on addAccount() <======");
     }

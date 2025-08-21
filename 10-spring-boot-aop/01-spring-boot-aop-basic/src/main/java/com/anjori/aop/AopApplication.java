@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.anjori.aop.dao.AccountDAO;
+import com.anjori.aop.dao.MembershipDAO;
 
 @SpringBootApplication
 public class AopApplication {
@@ -16,20 +17,23 @@ public class AopApplication {
 
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO accountDAO){
+	public CommandLineRunner commandLineRunner(AccountDAO accountDAO, MembershipDAO membershipDAO){
 		return runner ->{
-			demoBeforeAdvice(accountDAO);
+			demoBeforeAdvice(accountDAO, membershipDAO);
 
 			// do it again
 			System.out.println("\n Lets call it again.... \n");
-			demoBeforeAdvice(accountDAO);
+			demoBeforeAdvice(accountDAO, membershipDAO);
 		};
 	}
 
 
-	private void demoBeforeAdvice(AccountDAO accountDAO) {
+	private void demoBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
 		// call the business method
 		accountDAO.addAccount();
+
+		// call the membership business method
+		membershipDAO.addAccount();
 	}
 
 }
