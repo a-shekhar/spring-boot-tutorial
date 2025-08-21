@@ -1,6 +1,8 @@
 package com.anjori.aop.dao;
 
+import com.anjori.aop.Account;
+
 public interface AccountDAO {
     
-    void addAccount();
+    void addAccount(Account account, boolean vipFlag);
 }

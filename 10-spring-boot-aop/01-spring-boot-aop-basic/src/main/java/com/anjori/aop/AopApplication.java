@@ -22,18 +22,21 @@ public class AopApplication {
 			demoBeforeAdvice(accountDAO, membershipDAO);
 
 			// do it again
-			System.out.println("\n Lets call it again.... \n");
-			demoBeforeAdvice(accountDAO, membershipDAO);
+			//System.out.println("\n Lets call it again.... \n");
+			//demoBeforeAdvice(accountDAO, membershipDAO);
 		};
 	}
 
 
 	private void demoBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
 		// call the business method
-		accountDAO.addAccount();
+		Account account = new Account();
+		accountDAO.addAccount(account, true);
+
+		System.out.println();
 
 		// call the membership business method
-		membershipDAO.addAccount();
+		membershipDAO.addSillyMethod();
 	}
 
 }
