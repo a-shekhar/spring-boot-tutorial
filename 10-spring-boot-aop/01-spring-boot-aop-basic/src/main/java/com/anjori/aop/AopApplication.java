@@ -32,11 +32,13 @@ public class AopApplication {
 		// call the business method
 		Account account = new Account();
 		accountDAO.addAccount(account, true);
+		accountDAO.doWork();
 
 		System.out.println();
 
 		// call the membership business method
 		membershipDAO.addSillyMethod();
+		membershipDAO.goToSleep();
 	}
 
 }
